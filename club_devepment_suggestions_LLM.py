@@ -11,14 +11,14 @@ from ollama import chat
 from flask import Flask,jsonify
 
 # prepare the back end interface
-app=Flask(__name__)
-@app.route('api/save-results',methods=['POST'])
-def get_suggestions():
-    output=response['message']['content']
-    return jsonify(json.loads(output))
+# app=Flask(__name__)
+# @app.route('api/save-results',methods=['POST'])
+# def get_suggestions():
+#     output=response['message']['content']
+#     return jsonify(json.loads(output))
 
-if __name__=="__main__":
-    app.run(debug=True)
+# if __name__=="__main__":
+#     app.run(debug=True)
 # api/club_sugggestions
 
 with open('club_population_changes.json', 'r', encoding='utf-8') as f:
