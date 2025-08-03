@@ -12,7 +12,7 @@ from flask import Flask,jsonify
 
 # prepare the back end interface
 app=Flask(__name__)
-@app.route('api/save-results',methods=['GET'])
+@app.route('api/save-results',methods=['POST'])
 def get_suggestions():
     output=response['message']['content']
     return jsonify(json.loads(output))
