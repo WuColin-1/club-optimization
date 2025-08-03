@@ -62,7 +62,74 @@ body {
             scrollbar-width: thin;
             scrollbar-color: #fb7185 #f8fafc;
         }
-
+            .club-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .club-item {
+        padding: 16px;
+        border-radius: 8px;
+        background: white;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+    }
+    
+    .club-item:hover {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* 选中状态样式 - 红色背景 + 上浮效果 */
+    .club-item.selected {
+        background-color: #ff3b5c;
+        color: white;
+        border-color: #ff3b5c;
+        box-shadow: 0 6px 12px rgba(255, 59, 92, 0.25);
+        transform: translateY(-4px);
+        z-index: 1;
+    }
+    
+    .club-item h2 {
+        margin: 0 0 8px 0;
+        font-size: 1.2em;
+    }
+    
+    .club-item p {
+        margin: 0;
+        font-size: 0.9em;
+        opacity: 0.9;
+    }
+    
+    /* 按钮样式 */
+    .button-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    
+    button {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        flex: 1;
+    }
+    
+    #restart-btn {
+        background: #f1f5f9;
+        color: #64748b;
+    }
+    
+    #apply_btn {
+        background: #ff3b5c;
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);
+    }
         .card-back-content::-webkit-scrollbar {
             width: 8px;
         }
