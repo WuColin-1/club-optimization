@@ -7,47 +7,44 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/framer-motion@10.18.0/dist/framer-motion.js"></script>
     <style>
-
+        
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans overflow-hidden">
+    <!-- Floating background elements -->
+    <div class="floating-element float-1"></div>
+    <div class="floating-element float-2"></div>
+    <div class="floating-element float-3"></div>
+    <div class="floating-element float-4"></div>
+    <div class="floating-element float-5"></div>
+    <div class="floating-element float-6"></div>
+    <div class="floating-element float-7"></div>
+    
+    <!-- View All sidebar -->
+    <div id="view-all-sidebar">
+        <button class="close-sidebar">&times;</button>
+        <h2>All Clubs</h2>
+        <div id="club-list-container"></div>
+    </div>
+    
+    <!-- Overlay for sidebar -->
+    <div id="sidebar-overlay"></div>
 
     <main id="app-container" class="relative w-full h-screen flex items-center justify-center">
-
         <!-- Home Screen -->
         <section id="home-screen" class="text-center transition-opacity duration-700">
-            <h1 class="slogan text-6xl md:text-8xl text-rose-500 mb-6">Find Your Tribe.</h1>
-            <p class="text-slate-500 mb-12 text-lg">Discover clubs and communities that match your passion.</p>
-            <button id="start-matching-btn" class="bg-rose-500 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all duration-300 transform hover:scale-105">
+            <h1 class="slogan text-6xl md:text-8xl text-rose-500">Find Your Tribe.</h1>
+            <p class="text-slate-500 text-lg">Discover clubs and communities that match your passion.</p>
+            <button id="start-matching-btn" class="bg-rose-500 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all duration-300 transform hover:scale-105 mt-12">
                 Start Your Club Matching
             </button>
         </section>
-        <img id="astr_club"
-        src="/Users/wutianchen/GitHub/club-optimization/interface-weather-moon--Streamline-Core.svg" 
-        alt="unable to resolve the image"
-        style="position: absolute; top: 275px; left: 500px; cursor: grab; width: 80px;"
-        >
-        <img id="heart_club"
-        src="/Users/wutianchen/GitHub/club-optimization/interface-favorite-heart-2--Streamline-Core.svg" 
-        alt="unable to resolve the image"
-        style="position: absolute; top: 800px; left: 800px; cursor: grab; width: 80px;"
-        >
-        <img id="draw_club"
-        src="/Users/wutianchen/GitHub/club-optimization/interface-edit-tool-paint--Streamline-Core.svg" 
-        alt="unable to resolve the image"
-        style="position: absolute; top: 600px; left: 150px; cursor: grab; width: 80px;"
-        >
-        <img id="reading_club"
-        src="/Users/wutianchen/GitHub/club-optimization/interface-content-book-open-flip--Streamline-Core.svg" 
-        alt="unable to resolve the image"
-        style="position: absolute; top: 700px; left: 500px; cursor: grab; width: 80px;"
-        >
+
         <!-- Questionnaire Screen -->
         <section id="questionnaire-screen" class="absolute inset-0 bg-slate-50 flex items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none overflow-auto py-8">
             <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl w-full max-w-lg mx-4">
@@ -141,22 +138,29 @@
         <!-- Card Selection Screen -->
         <section id="card-screen" class="absolute inset-0 bg-slate-50 flex flex-col items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none">
             <div id="card-container" class="relative w-[300px] h-[450px] md:w-[350px] md:h-[525px]">
-                <!-- Cards will be injected here+ -->
+                <!-- Cards will be injected here -->
             </div>
+            <!-- Finish button -->
             <div class="absolute top-5 right-5">
                  <button id="finish-btn" class="bg-white text-rose-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-rose-50 transition-all">Finish</button>
+            </div>
+            <!-- View all button -->
+            <div class="absolute top-5 left-5">
+                 <button id="view-btn" class="bg-white text-rose-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-rose-50 transition-all">View ALL</button>
             </div>
             <div class="flex items-center text-slate-400 mt-8 text-sm">
                 <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
                 <span>Use keyboard arrows or drag to decide</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
             </div>
+            <!-- dislike -->
              <div class="absolute bottom-5 left-5">
                 <button id="disliked-btn" class="relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-amber-50 transition-all transform hover:scale-110">
                     <i data-lucide="trash-2" class="w-8 h-8 text-amber-500"></i>
                     <span id="disliked-count" class="absolute -top-1 -right-1 bg-amber-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
                 </button>
             </div>
+            <!-- like bin -->
              <div class="absolute bottom-5 right-5">
                 <button id="liked-btn" class="relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-teal-50 transition-all transform hover:scale-110">
                     <i data-lucide="shopping-cart" class="w-8 h-8 text-teal-500"></i>
@@ -174,12 +178,12 @@
                     <div id="results-list" class="space-y-4 mb-8"></div>
                     <div class="flex space-x-4">
                         <button id="restart-btn" class="flex-1 bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-lg hover:bg-slate-300 transition-all">Restart</button>
-                        <button id="download-btn" class="flex-1 bg-rose-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all">Select one and HERE WE GO!!</button>
+                        <button id="apply_btn" class="flex-1 bg-rose-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all">Select one and HERE WE GO!!</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Liked/Disliked Modals + a test+two test-->
+            <!-- Liked/Disliked Modals -->
             <div id="list-modal" class="modal-backdrop">
                 <div class="modal-content w-full max-w-md">
                      <div class="flex justify-between items-center mb-4">
@@ -195,13 +199,8 @@
     </main>
 
     <script>
-
-    </script>
-    <script>
-        // --- Consolidated JavaScript ---
-
-        // ====== From data.js ======
         
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
