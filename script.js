@@ -3,6 +3,12 @@
     });
 
 
+    const icons = [
+        { id: 'astr_club', info: 'This is the Astronomy Club!' },
+        { id: 'heart_club', info: 'This is the Heart Club!' },
+        { id: 'draw_club', info: 'This is the Drawing Club!' },
+        { id: 'reading_club', info: 'This is the Reading Club!' }
+        ]
     const clubs = [
         {
             id: 1,
@@ -788,5 +794,43 @@ fetch('http://localhost:5000/api/save-results', {
             downloadResults,
             showListModal: modalHandler.show,
             hideListModal: modalHandler.hide
+        });
+    });
+    icons.forEach(iconData => {
+        const icon = document.getElementById(iconData.id);
+        let isDragging = false;
+        let offsetX = 0, offsetY = 0;
+
+        // 禁止浏览器默认拖拽
+        icon.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // 鼠标按下
+        icon.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - icon.offsetLeft;
+            offsetY = e.clientY - icon.offsetTop;
+            icon.style.cursor = 'grabbing';
+        });
+
+        // 鼠标移动
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            icon.style.left = `${e.clientX - offsetX}px`;
+            icon.style.top = `${e.clientY - offsetY}px`;
+        });
+
+        // 鼠标松开
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                icon.style.cursor = 'grab';
+            }
+        });
+
+        // 点击（避免拖拽误触）
+        icon.addEventListener('click', (e) => {
+            if (!isDragging) {
+                alert(iconData.info);
+            }
         });
     });
