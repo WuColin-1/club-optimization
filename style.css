@@ -1,0 +1,198 @@
+body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .slogan {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .transition-opacity {
+            transition: opacity 0.7s ease-in-out;
+        }
+
+        .card-container-perspective {
+            perspective: 1000px;
+        }
+
+        .club-card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            user-select: none;
+        }        
+        .club-card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card-front {            
+            background: white;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-back {
+            background: white;
+            transform: rotateY(180deg);
+            padding: 2rem;
+        }
+
+        .card-back-content {
+            height: 100%;
+            overflow-y: auto;
+            /* Custom scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: #fb7185 #f8fafc;
+        }
+
+        .card-back-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .card-back-content::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+
+        .card-back-content::-webkit-scrollbar-thumb {
+            background-color: #fb7185;
+            border-radius: 10px;
+            border: 3px solid #f8fafc;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        /* Modal styles */
+        .modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-backdrop.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal-backdrop.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Custom select styling */
+        .custom-select {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .select-header {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: all 0.3s;
+        }
+        
+        .select-header:hover {
+            border-color: #fb7185;
+        }
+        
+        .select-header.open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: #fb7185;
+        }
+        
+        .select-options {
+            position: absolute;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            background: white;
+            z-index: 10;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .select-option {
+            padding: 0.8rem 1rem;
+            transition: all 0.2s;
+        }
+        
+        .select-option:hover {
+            background-color: #fce7f3;
+            color: #fb7185;
+        }
+        
+        .select-option.selected {
+            background-color: #fce7f3;
+            color: #fb7185;
+        }
+        
+        .arrow {
+            transition: transform 0.3s;
+        }
+        
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+        
+        .question-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #334155;
+        }
