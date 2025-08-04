@@ -56,13 +56,82 @@ body {
         }
 
         .card-back-content {
+            align-items: center;
             height: 100%;
+            line-height: 2.5;
             overflow-y: auto;
             /* Custom scrollbar */
             scrollbar-width: thin;
-            scrollbar-color: #fb7185 #f8fafc;
+            scrollbar-color: #fcf4f5 #f8fafc;
         }
-
+        .club-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 20px 0;
+    }
+    
+    .club-item {
+        padding: 16px;
+        border-radius: 8px;
+        background: white;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+    }
+    
+    .club-item:hover {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* 选中状态样式 - 红色背景 + 上浮效果 */
+    .club-item.selected {
+        background-color: #ff3b5c;
+        color: white;
+        border-color: #ff3b5c;
+        box-shadow: 0 6px 12px rgba(255, 59, 92, 0.25);
+        transform: translateY(-4px);
+        z-index: 1;
+    }
+    
+    .club-item h2 {
+        margin: 0 0 8px 0;
+        font-size: 1.2em;
+    }
+    
+    .club-item p {
+        margin: 0;
+        font-size: 0.9em;
+        opacity: 0.9;
+    }
+    
+    /* 按钮样式 */
+    .button-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    
+    button {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        flex: 1;
+    }
+    
+    #restart-btn {
+        background: #f1f5f9;
+        color: #64748b;
+    }
+    
+    #apply_btn {
+        background: #ff3b5c;
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 59, 92, 0.3);
+    }
         .card-back-content::-webkit-scrollbar {
             width: 8px;
         }
@@ -80,24 +149,7 @@ body {
         .no-scroll {
             overflow: hidden;
         }
-        /* arrow style */
-        .arrow-left {
-            position: absolute;
-            bottom: 10%;
-            left: 750px;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-        }
 
-        .arrow-right {
-            position: absolute;
-            bottom: 10%;
-            right: 750px;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px    ;
-        }
         /* Modal styles */
         .modal-backdrop {
             position: absolute;
@@ -129,6 +181,7 @@ body {
         .modal-backdrop.visible .modal-content {
             transform: scale(1);
         }
+
 
         .animate-fade-in {
             animation: fadeIn 0.3s ease-in-out;
@@ -381,84 +434,6 @@ body {
         #home-screen p {
             margin-bottom: 3rem;
         }
-        /* View All sidebar */
-        #view-all-sidebar {
-            position: fixed;
-            top: 0;
-            left: -400px;
-            width: 350px;
-            height: 100vh;
-            background: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: left 0.4s ease;
-            overflow-y: auto;
-            padding: 20px;
-        }
-        
-        #view-all-sidebar.visible {
-            left: 0;
-        }
-        
-        #view-all-sidebar h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #334155;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f1f5f9;
-        }
-        
-        .club-item {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            background: #f8fafc;
-            transition: all 0.3s;
-        }
-        
-        .club-item:hover {
-            background: #f1f5f9;
-            transform: translateX(5px);
-        }
-        
-        .club-item h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 8px;
-        }
-        
-        .club-item p {
-            color: #64748b;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .close-sidebar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #64748b;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-sidebar:hover {
-            color: #ef4444;
-        }
-        
-        /* Home screen spacing adjustments */
-        #home-screen h1 {
-            margin-bottom: 1.5rem;
-        }
-        
-        #home-screen p {
-            margin-bottom: 3rem;
-        }
         
         /* Overlay for sidebar */
         #sidebar-overlay {
@@ -474,4 +449,24 @@ body {
         
         #sidebar-overlay.visible {
             display: block;
+        }
+
+/* 111 */
+        #club-detail-modal {
+            backdrop-filter: blur(5px);
+        }
+
+        #club-detail-modal .modal-content {
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
