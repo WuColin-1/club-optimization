@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
 
-        const clubInfo = {
-            astr_club: "Astronomy Club: Explore the wonders of the universe with telescopes and space talks.",
-            heart_club: "Heart Club: Community service and volunteer activities to make an impact.",
-            draw_club: "Drawing Club: Improve your art skills and join creative sketch sessions.",
-            reading_club: "Reading Club: Share and discuss books with fellow literature lovers."
-        };
+        // const clubInfo = {
+        //     astr_club: "Astronomy Club: Explore the wonders of the universe with telescopes and space talks.",
+        //     heart_club: "Heart Club: Community service and volunteer activities to make an impact.",
+        //     draw_club: "Drawing Club: Improve your art skills and join creative sketch sessions.",
+        //     reading_club: "Reading Club: Share and discuss books with fellow literature lovers."
+        // };
 
         const clubs = [
             {
@@ -285,10 +285,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!results || results.length === 0) {
                 resultsList.innerHTML = '<p class="text-slate-500 text-center">You haven\'t liked any clubs. Swipe right on some clubs to get recommendations!</p>';
-            } else {
+            } 
+            else {
                 const rankColors = ['text-amber-400', 'text-slate-500', 'text-amber-600']; // Gold, Silver, Bronze-ish
                 const resultItems = results.map((club, index) => `
-                    <div class="bg-slate-100 p-4 rounded-lg shadow-inner">
+                    <div class="selectable-club block bg-slate-100 p-4 rounded-lg shadow-inner cursor-pointer transition border-2 border-transparent hover:bg-slate-200" data-club="${club.name}">
                         <div class="flex items-baseline mb-2">
                             <span class="text-2xl font-bold ${rankColors[index] || 'text-slate-400'} mr-3">#${index + 1}</span>
                             <h3 class="text-xl font-bold text-slate-800">${club.name}</h3>
@@ -297,6 +298,45 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `).join('');
                 resultsList.innerHTML = resultItems;
+                
+                // Turns Red when Selected Clubs
+                setTimeout(() => {
+                    const cards = document.querySelectorAll('.selectable-club');
+                    const applyBtn = document.getElementById('apply_btn');
+                    let selectedCard = null;
+
+                    // 初始状态设为禁用和灰色
+                    confirmBtn.disabled = true;
+                    confirmBtn.classList.remove('bg-rose-500', 'cursor-pointer');
+                    confirmBtn.classList.add('bg-slate-200', 'cursor-not-allowed');
+
+                    cards.forEach(card => {
+                        card.addEventListener('click', () => {
+                            // 如果是重复点击：取消选择
+                            if (selectedCard === card) {
+                                card.classList.remove('border-rose-500');
+                                selectedCard = null;
+
+                                confirmBtn.disabled = true;
+                                confirmBtn.classList.remove('bg-rose-500', 'cursor-pointer');
+                                confirmBtn.classList.add('bg-slate-200', 'cursor-not-allowed');
+                                return;
+                            }
+
+                            // 取消旧选择
+                            cards.forEach(c => c.classList.remove('border-rose-500'));
+
+                            // 添加新选择
+                            card.classList.add('border-rose-500');
+                            selectedCard = card;
+
+                            // 按钮启用 + 高亮
+                            confirmBtn.disabled = false;
+                            confirmBtn.classList.remove('bg-slate-200', 'cursor-not-allowed');
+                            confirmBtn.classList.add('bg-rose-500', 'cursor-pointer');
+                        });
+                    });
+                }, 100);
             }
 
             resultsModal.classList.add('visible');
