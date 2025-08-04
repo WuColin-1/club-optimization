@@ -4,7 +4,6 @@ import torch.optim as optim
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data import Dataset, DataLoader
 from matplotlib import pyplot as plt
 
@@ -89,7 +88,7 @@ def evaluate(model, dataloader, criterion):
 df = pd.read_csv("club_population.csv")
 # noice=np.random.randint(-3,3,size=len(df))
 # df['population']+=noice
-    
+
 # Normalize
 # scaler = MinMaxScaler()
 # df[['activity_freq', 'funding_support', 'population']] = scaler.fit_transform(
