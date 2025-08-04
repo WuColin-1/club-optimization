@@ -136,7 +136,7 @@
         </section>
 
         <!-- Card Selection Screen -->
-        <section id="card-screen" class="absolute inset-0 bg-slate-50 flex flex-col items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none">
+        <section id="card-screen" class="bg-slate-50 flex flex-col items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none hidden">
             <div id="card-container" class="relative w-[300px] h-[450px] md:w-[350px] md:h-[525px]">
                 <!-- Cards will be injected here -->
             </div>
@@ -160,6 +160,16 @@
                     <span id="disliked-count" class="absolute -top-1 -right-1 bg-amber-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
                 </button>
             </div>
+                        <!-- navigation arrows -->
+             <button id="arrow_dislike">
+                <img src="/Users/wutianchen/GitHub/club-optimization/dislike.svg" alt="dislke" class="arrow-left">
+             </button>
+            
+
+            <button id="arrow_like">
+                <img src="/Users/wutianchen/GitHub/club-optimization/like.svg" alt="like" class="arrow-right">
+            </button>
+
             <!-- like bin -->
              <div class="absolute bottom-5 right-5">
                 <button id="liked-btn" class="relative w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-teal-50 transition-all transform hover:scale-110">

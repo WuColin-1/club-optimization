@@ -149,6 +149,24 @@ body {
         .no-scroll {
             overflow: hidden;
         }
+        /* arrow style */
+        .arrow-left {
+            position: absolute;
+            bottom: 10%;
+            left: 750px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+        }
+
+        .arrow-right {
+            position: absolute;
+            bottom: 10%;
+            right: 750px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px    ;
+        }
 
         /* Modal styles */
         .modal-backdrop {

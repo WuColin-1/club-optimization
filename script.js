@@ -856,9 +856,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('main > section').forEach(screen => {
                 const isTarget = screen.id === screenId;
                 if (isTarget) {
-                    screen.classList.remove('opacity-0', 'pointer-events-none');
+                    screen.classList.remove('opacity-0', 'pointer-events-none', 'hidden');
                 } else {
-                    screen.classList.add('opacity-0', 'pointer-events-none');
+                    screen.classList.add('opacity-0', 'pointer-events-none', 'hidden');
                 }
             });
         }
@@ -1038,6 +1038,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            function flyOff(direction) {
+                const x = direction === 'right' ? 500 : -500;
+                
+                cardElement.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
+                cardElement.style.transform = `translateX(${x}px) translateY(${offsetY}px) rotate(${direction === 'right' ? 20 : -20}deg)`;
+                cardElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    cardElement.remove();
+                    onSwipe(direction);
+                }, 300);
+            }
+
+
             function handleDragEnd(e) {
                 // Remove event listeners
                 document.removeEventListener('touchmove', handleDragMove);
@@ -1061,19 +1075,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            function flyOff(direction) {
-                const x = direction === 'right' ? 500 : -500;
-                
-                cardElement.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
-                cardElement.style.transform = `translateX(${x}px) translateY(${offsetY}px) rotate(${direction === 'right' ? 20 : -20}deg)`;
-                cardElement.style.opacity = '0';
-                
-                setTimeout(() => {
-                    cardElement.remove();
-                    onSwipe(direction);
-                }, 300);
-            }
-
             function flyBack() {
                 cardElement.style.transition = 'transform 0.5s ease-out';
                 cardElement.style.transform = '';
@@ -1085,7 +1086,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Keyboard support
             document.addEventListener('keydown', handleKeyDown);
+            document.getAnimations('arrow_')
+            let dislike_element = document.getElementById('arrow_dislike')
 
+            dislike_element.onclick = () => {
+                flyOff('left');
+            }
+
+
+            let like_element = document.getElementById('arrow_like')
+
+            like_element.onclick = () => {
+                flyOff('right');
+            }
             function handleKeyDown(e) {
                 if (e.key === 'ArrowRight') {
                     flyOff('right');
