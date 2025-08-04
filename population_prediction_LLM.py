@@ -2,6 +2,7 @@ from ollama import chat
 import pandas as pd
 import json
 import time
+import ast
 
 
 
@@ -53,7 +54,7 @@ response = chat(
         "content": (
             "You are a JSON generator. Given club features like 社团名称,公众号点击量,两年变化趋势,社团人数基数,过往问卷情况,招新活动出勤率,老成员黏性,往年招新报名转化率,年度活动频次,学生院系"
             "predict this year's population. \n"
-            "**ONLY** output a .json format text with the yearly new population predictions for every single club (10 total).\n\n"
+            "**ONLY** output a .json format text with the yearly new population predictions for every single club (30 total).\n\n"
             "Do NO reasoning."
         )
     },
@@ -66,5 +67,22 @@ response = chat(
 end_time = time.time()
 print(end_time - start_time)
 
-print(response['message']['content'])
+# Data Processing
+text_response = response['message']['content']
+
+text_response = json.loads(text_response)
+
+# 字符串转为 dict 列表
+text_response = text_response["Club Population Predict"]
+
+# Convert output to .json
+with open("Capstone/club_population_changes.json", "w", encoding="utf-8") as f:
+    json.dump(text_response, f, indent=4)
+
+# 转为 DataFrame
+df = pd.DataFrame(text_response)
+df.to_csv("Capstone/This year's Population Prediction.csv", index=False, encoding="utf-8-sig")
+
+
+
 
