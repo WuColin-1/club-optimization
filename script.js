@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
 
-        const clubInfo = {
-            astr_club: "Astronomy Club: Explore the wonders of the universe with telescopes and space talks.",
-            heart_club: "Heart Club: Community service and volunteer activities to make an impact.",
-            draw_club: "Drawing Club: Improve your art skills and join creative sketch sessions.",
-            reading_club: "Reading Club: Share and discuss books with fellow literature lovers."
-        };
+        // const clubInfo = {
+        //     astr_club: "Astronomy Club: Explore the wonders of the universe with telescopes and space talks.",
+        //     heart_club: "Heart Club: Community service and volunteer activities to make an impact.",
+        //     draw_club: "Drawing Club: Improve your art skills and join creative sketch sessions.",
+        //     reading_club: "Reading Club: Share and discuss books with fellow literature lovers."
+        // };
 
         const clubs = [
             {
@@ -192,6 +192,442 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
+        
+const clubDetails = {
+        
+        "互教互学数理社": {
+            name: "互教互学数理社",
+            threshold: "提交一份自创数学/物理趣味题解",
+            qrCode: "QR code of each club/这里会有一个微信号.png",
+            activities: [
+                "跨年级“小老师”微课竞赛",
+                "π节创意公式推导赛",
+                "用数学建模预测食堂排队时间"
+            ],
+            testimonials: [
+                "\"给学弟妹讲题时发现自己逻辑漏洞！\"",
+                "\"和竞赛大佬组队啃掉了马尔可夫链！\""
+            ]
+        },
+        "造物π创客社": {
+            name: "造物π创客社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_1.png",
+            activities: [
+                "废旧电子产品改造工作坊",
+                "校园智能垃圾桶设计赛",
+                "3D打印校徽盲盒交换"
+            ],
+            testimonials: [
+                "\"第一次焊电路板手抖成帕金森，成品居然能亮！\"",
+                "\"社长用泡面桶做了个机器人！\""
+            ]
+        },
+        "繁星天文社": {
+            name: "繁星天文社",
+            threshold: "夜间观测活动自愿参加",
+            qrCode: "QR code of each club/这里会有一个微信号_2.png",
+            activities: [
+                "中秋月球摄影大赛",
+                "操场躺平观流星雨",
+                "用星图APP破解星座谜题寻宝"
+            ],
+            testimonials: [
+                "\"在屋顶冻成狗但看到土星环值了！\"",
+                "\"学妹用星象知识成功搭讪！\""
+            ]
+        },
+        "全球胜任力模联社": {
+            name: "全球胜任力模联社",
+            threshold: "① 提交300字立场文件 ② 会基础PPT",
+            qrCode: "QR code of each club/这里会有一个微信号_3.png",
+            activities: [
+                "模拟联合国难民署辩论",
+                "跨校“碳中和”谈判",
+                "用Minecraft重建国际会场"
+            ],
+            testimonials: [
+                "\"西装革履吵架太爽了！\"",
+                "\"英语渣靠手势谈判赢最佳代表！\""
+            ]
+        },
+        "商业社": {
+            name: "商业社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_4.png",
+            activities: [
+                "校园二手书金融交易实验",
+                "给食堂阿姨设计促销方案",
+                "用乐高模拟公司并购"
+            ],
+            testimonials: [
+                "\"倒卖校徽徽章月入奶茶钱！\"",
+                "\"终于看懂爸妈股票软件了！\""
+            ]
+        },
+        "奇点科创社": {
+            name: "奇点科创社",
+            threshold: "提交任意科技创意脑洞（50字）",
+            qrCode: "QR code of each club/这里会有一个微信号_5.png",
+            activities: [
+                "用无人机航拍校运会",
+                "给教室门装自动感应锁",
+                "教ChatGPT写情书大赛"
+            ],
+            testimonials: [
+                "\"做的机械臂只会比耶，但校领导鼓掌了！\"",
+                "\"熬夜调代码时和社长成了兄弟！\""
+            ]
+        },
+        "羽毛球社": {
+            name: "羽毛球社",
+            threshold: "无（提供公用球拍）",
+            qrCode: "QR code of each club/这里会有一个微信号_6.png",
+            activities: [
+                "师生混合双打擂台",
+                "羽毛球彩绘DIY",
+                "\"一球换奶茶\"趣味赛"
+            ],
+            testimonials: [
+                "\"社长接球摔跤视频在B站播放过万！\"",
+                "\"体育课考试轻松满分！\""
+            ]
+        },
+        "流云武术社": {
+            name: "流云武术社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_7.png",
+            activities: [
+                "晨练太极惊动广场舞阿姨",
+                "双截棍打苹果挑战赛",
+                "自创“考试必胜拳”"
+            ],
+            testimonials: [
+                "\"体测引体向上轻松拉满！\"",
+                "\"练完拳数学考了史上最高！\""
+            ]
+        },
+        "弈界棋类交流会": {
+            name: "弈界棋类交流会",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_8.png",
+            activities: [
+                "五子棋闪电车轮战",
+                "用象棋棋子拍定格动画",
+                "围棋盲下挑战赛"
+            ],
+            testimonials: [
+                "\"靠输棋认识了女朋友！\"",
+                "\"在这里悔棋不会被骂！\""
+            ]
+        },
+        "电竞社": {
+            name: "电竞社",
+            threshold: "① 签署防沉迷承诺书 ② 接受老年人教学",
+            qrCode: "QR code of each club/这里会有一个微信号_9.png",
+            activities: [
+                "公益直播赛筹款捐书",
+                "电竞解说方言大赛",
+                "教老师打王者上分"
+            ],
+            testimonials: [
+                "\"和班主任双排他夸我意识好！\"",
+                "\"比赛赢的奶茶甜度超标！\""
+            ]
+        },
+        "街舞社": {
+            name: "街舞社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_10.png",
+            activities: [
+                "天台月光快闪舞",
+                "用广播操改编街舞",
+                "和广场舞团battle联谊"
+            ],
+            testimonials: [
+                "\"社恐变社牛只需一场公演！\"",
+                "\"扭伤脚时全社接力背我去医务室！\""
+            ]
+        },
+        "剪纸社": {
+            name: "剪纸社",
+            threshold: "无（提供安全剪刀）",
+            qrCode: "QR code of each club/这里会有一个微信号_11.png",
+            activities: [
+                "剪校猫肖像大赛",
+                "窗花拯救丑玻璃活动",
+                "剪纸动画《食堂打饭战》"
+            ],
+            testimonials: [
+                "\"剪坏十张纸后终于有能贴冰箱的作品！\"",
+                "\"送奶奶生日礼物被夸了！\""
+            ]
+        },
+        "Infinite摄影社": {
+            name: "Infinite摄影社",
+            threshold: "手机可参与",
+            qrCode: "QR code of each club/这里会有一个微信号_12.png",
+            activities: [
+                "偷拍老师表情包大赛（已授权）",
+                "九宫格毕业故事征集",
+                "用错位摄影假装吃月亮"
+            ],
+            testimonials: [
+                "\"拍的教导主任微笑照卖了20元！\"",
+                "\"从此朋友圈点赞翻倍！\""
+            ]
+         },
+        "辩论社": {
+            name: "辩论社",
+            threshold: "① 选择“甜/咸豆腐脑”立场并说1个理由",
+            qrCode: "QR code of each club/这里会有一个微信号_13.png",
+            activities: [
+                "奇葩说式恋爱辩题夜",
+                "用鲁迅语录打辩论",
+                "随机分组反方变友军"
+            ],
+            testimonials: [
+                "\"吵架功力碾压我妈了！\"",
+                "\"原神抽卡玄学被驳得体无完肤...\""
+            ]
+        },
+        "公益社": {
+            name: "公益社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_14.png",
+            activities: [
+                "收集塑料瓶盖拼巨幅画",
+                "给流浪猫做防寒窝",
+                "写“夸夸信”塞满全校书包"
+            ],
+            testimonials: [
+                "\"收到学妹感谢信哭成狗！\"",
+                "\"撸猫时顺便做了志愿时长！\""
+            ]
+        },
+        "不止艺术社": {
+            name: "不止艺术社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_15.png",
+            activities: [
+                "用粉笔灰做彩色沙画",
+                "给石墩子穿毛衣",
+                "在操场摆落叶阵"
+            ],
+            testimonials: [
+                "\"涂鸦校长雕像后他没生气！\"",
+                "\"作品被放进校史馆角落！\""
+            ]
+        },
+        "微光心理社": {
+            name: "微光心理社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_16.png",
+            activities: [
+                "解压捏泡泡纸大赛",
+                "匿名烦恼交换箱",
+                "扮演树洞听陌生人故事"
+            ],
+            testimonials: [
+                "\"知道了暗恋对象也焦虑秃头！\"",
+                "\"学完催眠术室友真的睡着了！\""
+            ]
+        },
+        "中国书画社": {
+            name: "中国书画社",
+            threshold: "无（提供毛笔）",
+            qrCode: "QR code of each club/这里会有一个微信号_17.png",
+            activities: [
+                "在食堂餐盘上题诗",
+                "给校服画水墨补丁",
+                "用拖把写巨幅书法"
+            ],
+            testimonials: [
+                "\"写的‘不挂科’被班主任裱起来了！\"",
+                "\"磨墨时找到了冥想的感觉！\""
+            ]
+        },
+        "足球社": {
+            name: "足球社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_18.png",
+            activities: [
+                "雨天泥地足球狂欢",
+                "穿充气恐龙服踢球",
+                "女生点球大战男队"
+            ],
+            testimonials: [
+                "\"射门打碎校长杯子却免赔！\"",
+                "\"从此体测800米能笑着跑完！\""
+            ]
+        },
+        "篮球社": {
+            name: "篮球社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_19.png",
+            activities: [
+                "篮筐挂甜甜圈投篮赛",
+                "蒙眼三分球挑战",
+                "和老师队打赌赢免作业券"
+            ],
+            testimonials: [
+                "\"绝杀后全班叫我流川枫！\"",
+                "\"打球骨折后收到全年级签名石膏！\""
+            ]
+        },
+        "中国舞社": {
+            name: "中国舞社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_20.png",
+            activities: [
+                "汉服快闪惊现小卖部",
+                "用舞蹈还原《清明上河图》",
+                "教外教扭秧歌"
+            ],
+            testimonials: [
+                "\"第一次下腰时听见了腰椎惨叫...\"",
+                "\"元旦晚会C位刷屏校友圈！\""
+            ]
+        },
+        "地理社": {
+            name: "地理社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_21.png",
+            activities: [
+                "用奥利奥做地层模型",
+                "给校园地形图画等高线",
+                "预测教室PM2.5分布"
+            ],
+            testimonials: [
+                "\"发现学校建在古河道上！\"",
+                "\"靠地理知识在密室逃脱装逼！\""
+            ]
+        },
+        "环境社": {
+            name: "环境社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_22.png",
+            activities: [
+                "蟑螂屋设计大赛",
+                "检测奶茶店废水COD",
+                "把落叶堆肥种出小番茄"
+            ],
+            testimonials: [
+                "\"养的蚯蚓成了班宠！\"",
+                "\"校长吃了我们种的番茄！\""
+            ]
+        },
+        "气象社": {
+            name: "气象社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_23.png",
+            activities: [
+                "在操场放探空气球",
+                "直播早高峰“带伞预警”",
+                "用数据论证“萧敬腾效应”"
+            ],
+            testimonials: [
+                "\"成功预言体育课逃雨！\"",
+                "\"做的天气瓶比初恋还好看！\""
+            ]
+        },
+        "阅读社": {
+            name: "阅读社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_24.png",
+            activities: [
+                "给鲁迅写微信对话",
+                "在厕所贴诗歌碎片",
+                "用小说角色玩剧本杀"
+            ],
+            testimonials: [
+                "\"《红楼梦》CP吵翻全社！\"",
+                "\"社长推荐网文比晋江还上头！\""
+            ]
+        },
+
+        "美食社": {
+            name: "美食社",
+            threshold: "① 自带食材≤20元 ② 不动明火",
+            qrCode: "QR code of each club/这里会有一个微信号_25.png",
+            activities: [
+                "化学课制冰糖实验延伸版",
+                "五仁月饼保卫战",
+                "测评食堂剩饭的100种改造"
+            ],
+            testimonials: [
+                "\"煮泡面加牛奶被封神！\"",
+                "\"靠焦糖布丁换到物理笔记！\""
+            ]
+        },
+
+        "音乐社": {
+            name: "音乐社",
+            threshold: "无（可当听众）",
+            qrCode: "QR code of each club/这里会有一个微信号_26.png",
+            activities: [
+                "午休走廊快闪合唱",
+                "用饮水机做打击乐",
+                "给校歌改编死亡金属版"
+            ],
+            testimonials: [
+                "\"跑调人当上了节奏沙锤手！\"",
+                "\"写的表白歌真管用！\""
+            ]
+        },
+
+        "播音社": {
+            name: "播音社",
+            threshold: "① 朗读“红鲤鱼绿鲤鱼”",
+            qrCode: "QR code of each club/这里会有一个微信号_27.png",
+            activities: [
+                "给校园松鼠配纪录片旁白",
+                "用播音腔念网络小说",
+                "悄悄代课点名"
+            ],
+            testimonials: [
+                "\"现在听自己声音不尴尬了！\"",
+                "\"模仿教导主任广播吓哭新生！\""
+            ]
+        },
+    
+        "乒乓球社": {
+            name: "乒乓球社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_28.png",
+            activities: [
+                "用饭盒当球拍比赛",
+                "颠球绕操场S形跑",
+                "开发“自习室无声打球法”"
+            ],
+            testimonials: [
+                "\"近视度数十年首度稳定！\"",
+                "\"和校长打球他夸我抽球狠！\""
+            ]
+        },
+    
+    
+        "排球社": {
+            name: "排球社",
+            threshold: "无",
+            qrCode: "QR code of each club/这里会有一个微信号_29.png",
+            activities: [
+                "沙滩排球进沙坑",
+                "用瑜伽球打巨型排球",
+                "发明“考试不挂科”击掌暗号"
+            ],
+            testimonials: [
+                "\"扣球太猛砸晕自己但赢了！\"",
+                "\"接球青紫像纹身超酷！\""
+            ]
+        }
+    }
+
+
+
+
+        
+
         // ====== Recommendation Engine ======
         function getTagsFromText(text) {
             if (!text) return [];
@@ -285,10 +721,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!results || results.length === 0) {
                 resultsList.innerHTML = '<p class="text-slate-500 text-center">You haven\'t liked any clubs. Swipe right on some clubs to get recommendations!</p>';
-            } else {
+            } 
+            else {
                 const rankColors = ['text-amber-400', 'text-slate-500', 'text-amber-600']; // Gold, Silver, Bronze-ish
                 const resultItems = results.map((club, index) => `
-                    <div class="bg-slate-100 p-4 rounded-lg shadow-inner">
+                    <div class="selectable-club block bg-slate-100 p-4 rounded-lg shadow-inner cursor-pointer transition border-2 border-transparent hover:bg-slate-200" data-club="${club.name}">
                         <div class="flex items-baseline mb-2">
                             <span class="text-2xl font-bold ${rankColors[index] || 'text-slate-400'} mr-3">#${index + 1}</span>
                             <h3 class="text-xl font-bold text-slate-800">${club.name}</h3>
@@ -297,6 +734,63 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `).join('');
                 resultsList.innerHTML = resultItems;
+                
+                // Selected Clubs
+                setTimeout(() => {
+                    const cards = document.querySelectorAll('.selectable-club');
+                    const confirmBtn = document.getElementById('apply_btn');
+                    let selectedCard = null;
+
+                    // 初始状态设为禁用和灰色
+                    confirmBtn.disabled = true;
+                    confirmBtn.classList.remove('bg-rose-500', 'cursor-pointer');
+                    confirmBtn.classList.add('bg-slate-200', 'cursor-not-allowed');
+
+                    cards.forEach(card => {
+                        card.addEventListener('click', () => {
+                            // 如果是重复点击：取消选择
+                            if (selectedCard === card) {
+                                card.classList.remove('border-rose-500');
+                                selectedCard = null;
+
+                                confirmBtn.disabled = true;
+                                confirmBtn.classList.remove('bg-rose-500', 'cursor-pointer');
+                                confirmBtn.classList.add('bg-slate-200', 'cursor-not-allowed');
+                                return;
+                            }
+
+                            // 取消旧选择
+                            cards.forEach(c => c.classList.remove('border-rose-500'));
+
+                            // 添加新选择
+                            card.classList.add('border-rose-500');
+                            selectedCard = card;
+
+                            // 按钮启用 + 高亮
+                            confirmBtn.disabled = false;
+                            confirmBtn.classList.remove('bg-slate-200', 'cursor-not-allowed');
+                            confirmBtn.classList.add('bg-rose-500', 'cursor-pointer');
+                        });
+                    });
+                    confirmBtn.addEventListener('click', () => {
+                        if (!selectedCard) return;
+                        console.log(selectedCard)
+                        const clubName = selectedCard.querySelector('h3').innerText.trim();
+                        // const clubName = selectedCard.dataset.club;
+                        const clubInfo = clubDetails[clubName];
+                        console.log('Selected Club:', clubName);
+                        console.log('Club Info:', clubInfo);
+                        
+                        if (!clubInfo) {
+                            alert("Oops! No detailed info available.");
+                            return;
+                        }
+
+                        
+                        showClubDetailModal(clubInfo);
+
+                    });
+                }, 100);
             }
 
             resultsModal.classList.add('visible');
@@ -373,7 +867,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function renderList(modalContent, items, isLiked, interactionCallback) {
             modalContent.innerHTML = '';
-            
             if (items.length === 0) {
                 modalContent.innerHTML = `<p class="text-slate-500 p-4 text-center">This list is empty.</p>`;
                 return;
@@ -630,6 +1123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+
         // ====== Event Listeners ======
         function initializeEventListeners(app) {
             document.getElementById('start-matching-btn').addEventListener('click', app.startQuestionnaire);
@@ -649,8 +1143,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideModal('results-modal');
                 app.restartApp();
             });
-
-            document.getElementById('apply_btn').addEventListener('click', app.downloadResults);
+            
+            // document.getElementById('apply_btn').addEventListener('click', app.showClubDetailModal);
 
             document.getElementById('close-list-modal-btn').addEventListener('click', () => hideModal('list-modal'));
 
@@ -842,6 +1336,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 recommendations: finalRecommendations
             });
         }
+
+        // Show Detailed Club Description
+        // After applying for the 'one club'
+        function showClubDetailModal(clubInfo) {
+            alert('111')
+            document.getElementById('modal-club-name').innerText = clubInfo.name;
+            document.getElementById('modal-club-req').innerText = clubInfo.threshold;
+            document.getElementById('modal-club-qr').src = clubInfo.qrCode;
+            document.getElementById('modal-club-act').innerText = clubInfo.activities;
+            document.getElementById('modal-club-feed').innerText = clubInfo.testimonials;
+
+            document.getElementById('club-detail-modal').classList.remove('hidden');
+        }
+
+
 
         document.addEventListener('DOMContentLoaded', () => {
             modalHandler = createModalHandler(state, { updateActionButtons });

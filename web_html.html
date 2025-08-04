@@ -16,8 +16,7 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans overflow-hidden">
-<!-- Floating background elements -->
-        <!-- Floating background elements -->
+    <!-- Floating background elements -->
     <div class="floating-element float-1"></div>
     <div class="floating-element float-2"></div>
     <div class="floating-element float-3"></div>
@@ -179,7 +178,7 @@
                     <div id="results-list" class="space-y-4 mb-8"></div>
                     <div class="flex space-x-4">
                         <button id="restart-btn" class="flex-1 bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-lg hover:bg-slate-300 transition-all">Restart</button>
-                        <button id="apply_btn" class="flex-1 bg-rose-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-rose-500/30 hover:bg-rose-600 transition-all">Select one and HERE WE GO!!</button>
+                        <button id="apply_btn" disabled class="selectable-club flex-1 bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-lg hover:bg-slate-300 transition-all">Select one and HERE WE GO!!</button>
                     </div>
                 </div>
             </div>
@@ -194,6 +193,22 @@
                         </button>
                     </div>
                     <div id="list-modal-content" class="space-y-2 max-h-[60vh] overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <!-- Detailed Club Info Showcase Modals -->
+            <div id="club-detail-modal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50">
+                <div class="bg-white rounded-xl p-6 w-[90%] max-w-xl shadow-xl text-slate-800">
+                    <h2 class="text-2xl font-bold mb-4" id="modal-club-name"></h2>
+                    <p><strong>门槛要求：</strong><span id="modal-club-req"></span></p>
+                    <p><strong>社团活动：</strong><span id="modal-club-act"></span></p>
+                    <p><strong>学长评价：</strong><span id="modal-club-feed"></span></p>
+                    <p><strong>招新群：</strong><img id="modal-club-qr" src="" alt="QR Code" class="w-32 my-2"></p>
+                    <div class="mt-4 text-center">
+                        <button onclick="document.getElementById('club-detail-modal').classList.add('hidden')" class="mt-4 bg-slate-700 text-white px-4 py-2 rounded hover:bg-slate-900 transition">
+                        Close
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
